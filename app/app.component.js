@@ -9,24 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Hero = (function () {
-    function Hero() {
-    }
-    return Hero;
-}());
-exports.Hero = Hero;
+var router_1 = require('@angular/router');
+var hero_service_1 = require('./hero.service');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
-        this.hero = {
-            id: 1,
-            name: 'Windstorm'
-        };
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}} details!</h2>\n    <div><label>id: </label>{{hero.id}}</div>\n    <span>1234</span>\n    <div>\n      <label>name: </label>\n      <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n    </div>\n    "
+            template: "\n        <h1>{{title}}</h1>\n        <nav>\n          <a [routerLink]=\"['/dashboard']\" routerLinkActive=\"active\">Dashboard</a>\n          <a [routerLink]=\"['/heroes']\" routerLinkActive=\"active\">Heroes</a>\n        </nav>\n        <router-outlet></router-outlet>\n      ",
+            styleUrls: ['app/app.component.css'],
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [
+                hero_service_1.HeroService
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
